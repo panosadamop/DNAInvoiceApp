@@ -1,0 +1,7 @@
+AuthName "invoicing.dnacreative.gr statistics"
+AuthType Basic
+AuthUserFile /home/invoicing/.stats-htpasswd
+require valid-user
+<Files .stats-htpasswd>
+deny from all
+</Files>

@@ -1,0 +1,16 @@
+/* =============================================================================
+   InvoicePlane
+   Custom Stylesheet
+
+   All changes made in this file will override the default styles.
+   ========================================================================== */
+
+#wrapper{
+    background: url(../img/loginbg.jpg) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+}
+.login-logo {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
