@@ -75,8 +75,6 @@ $cv = $this->controller->view_data["custom_values"];
                     invoice_terms: $('#invoice_terms').val(),
                     custom: $('input[name^=custom],select[name^=custom]').serializeArray(),
                     payment_method: $('#payment_method').val(),
-                    exchange_rate: $('#exchange_rate').val(),
-                    related_invoices: $('#related_invoices').val()
                 },
                 function (data) {
                     <?php echo(IP_DEBUG ? 'console.log(data);' : ''); ?>
@@ -337,6 +335,17 @@ if ($this->config->item('disable_read_only') == true) {
                                             echo 'disabled="disabled"';
                                         } ?>>
                                 </div>
+                                <!-- Custom fields -->
+                                <?php foreach ($custom_fields as $custom_field): ?>
+                                    <?php if ($custom_field->custom_field_location != 1) {
+                                        continue;
+                                    } ?>
+                                    <?php print_field($this->mdl_invoices, $custom_field, $cv); ?>
+                                <?php endforeach; ?>
+
+                            </div>
+
+                            <div class="col-xs-12 col-md-6">
 
                                 <div class="invoice-properties has-feedback">
                                     <label><?php _trans('date'); ?></label>
@@ -345,9 +354,9 @@ if ($this->config->item('disable_read_only') == true) {
                                         <input name="invoice_date_created" id="invoice_date_created"
                                                class="form-control input-sm datepicker"
                                                value="<?php echo date_from_mysql($invoice->invoice_date_created); ?>"
-                                            <?php if ($invoice->is_read_only == 1) {
-                                                echo 'disabled="disabled"';
-                                            } ?>>
+                                          <?php if ($invoice->is_read_only == 1) {
+                                            echo 'disabled="disabled"';
+                                          } ?>>
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar fa-fw"></i>
                                         </span>
@@ -361,36 +370,14 @@ if ($this->config->item('disable_read_only') == true) {
                                         <input name="invoice_date_due" id="invoice_date_due"
                                                class="form-control input-sm datepicker"
                                                value="<?php echo date_from_mysql($invoice->invoice_date_due); ?>"
-                                            <?php if ($invoice->is_read_only == 1) {
-                                                echo 'disabled="disabled"';
-                                            } ?>>
+                                          <?php if ($invoice->is_read_only == 1) {
+                                            echo 'disabled="disabled"';
+                                          } ?>>
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar fa-fw"></i>
                                         </span>
                                     </div>
                                 </div>
-
-                                <div class="invoice-properties">
-                                    <label><?php _trans('exchange_rate'); ?> </label>
-                                    <input type="text" id="exchange_rate" class="form-control input-sm" value="1,955830">
-                                </div>
-
-                                <div class="invoice-properties">
-                                    <label><?php _trans('related_invoice'); ?> </label>
-                                    <input type="text" id="related_invoices" class="form-control input-sm" value="">
-                                </div>
-
-                                <!-- Custom fields -->
-                                <?php foreach ($custom_fields as $custom_field): ?>
-                                    <?php if ($custom_field->custom_field_location != 1) {
-                                        continue;
-                                    } ?>
-                                    <?php print_field($this->mdl_invoices, $custom_field, $cv); ?>
-                                <?php endforeach; ?>
-
-                            </div>
-
-                            <div class="col-xs-12 col-md-6">
 
                                 <div class="invoice-properties">
                                     <label>
@@ -437,22 +424,6 @@ if ($this->config->item('disable_read_only') == true) {
                                         <?php if ($invoice->is_read_only == 1) {
                                             echo 'disabled="disabled"';
                                         } ?>>
-                                </div>
-
-                                <div class="invoice-properties">
-                                    <label for="invoicetype"><?php _trans('invoice_type'); ?></label>
-                                    <select class="form-control" id="invoice_type">
-                                        <option>Credit Note</option>
-                                        <option>Debit Note</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="invoice-properties">
-                                    <label for="whynovat"><?php _trans('why_no_vat'); ?></label>
-                                    <select class="form-control" id="why_no_vat">
-                                        <option>Deal in EU</option>
-                                        <option>VAT 0%</option>
-                                    </select>
                                 </div>
                             </div>
                             

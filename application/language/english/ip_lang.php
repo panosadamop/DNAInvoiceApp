@@ -666,10 +666,14 @@ $lang = array(
     'sumex_veka'                                   => 'VEKA',
     'user_iban'                                    => 'IBAN',
     'user_subscriber_number'                       => 'Subscriber Number',
-    'exchange_rate'																 => 'Exchange Rate (BGN->EUR)',
-    'related_invoice'															 => 'No to Invoice/Date',
-    'invoice_type'																 =>'Invoice Type:',
-    'why_no_vat'																	 =>'Reason for not charging VAT:',
+    'exchange_rate'								   => 'Exchange Rate (BGN->EUR)',
+    'related_invoice'							   => 'No to Invoice/Date',
+    'invoice_type'								   =>'Invoice Type:',
+    'reason_no_vat'								   =>'Reason for not charging VAT:',
+    'deal_in_eu'                                   =>'Deal in EU',
+    'no_vat'                                       =>'VAT 0%',
+    'credit_note'                                  =>'Credit Note',
+    'debit_note'                                   =>'Debit Note',
     // Errors
     'validator_fail'                               => 'Unable to process field %s: %s',
 

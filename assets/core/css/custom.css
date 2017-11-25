@@ -14,3 +14,6 @@
     margin-right: auto;
     margin-bottom: 15px;
 }
+.form-group {
+    margin-bottom: 0px!important;
+}

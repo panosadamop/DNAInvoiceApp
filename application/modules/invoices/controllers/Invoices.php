@@ -194,8 +194,7 @@ class Invoices extends Admin_Controller
                     'currency_symbol_placement' => get_setting('currency_symbol_placement'),
                     'decimal_point' => get_setting('decimal_point')
                 ),
-                'invoice_statuses' => $this->mdl_invoices->statuses(),
-                'invoice_types' => $this->mdl_invoices->invoice_types()
+                'invoice_statuses' => $this->mdl_invoices->statuses()
             )
         );
 

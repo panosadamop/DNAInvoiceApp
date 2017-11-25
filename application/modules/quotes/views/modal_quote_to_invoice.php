@@ -15,7 +15,11 @@
                     invoice_time_created: '<?php echo date('H:i:s') ?>',
                     invoice_group_id: $('#invoice_group_id').val(),
                     invoice_password: $('#invoice_password').val(),
-                    user_id: $('#user_id').val()
+                    user_id: $('#user_id').val(),
+                    exchange_rate: $('#exchange_rate').val(),
+                    related_invoice: $('#related_invoice').val(),
+                    exchange_rate: $('#invoice_type').val(),
+                    related_invoice: $('#reason_no_vat').val()
                 },
                 function (data) {
                     <?php echo(IP_DEBUG ? 'console.log(data);' : ''); ?>
